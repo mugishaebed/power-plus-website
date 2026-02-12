@@ -1,0 +1,119 @@
+<svg width="1600" height="1100" viewBox="0 0 1600 1100"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <!-- Glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Pulse glow -->
+    <filter id="pulseGlow">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feColorMatrix type="matrix"
+        values="0 1 0 0 0
+                0 1 0 0 0
+                0 1 0 0 0
+                0 0 0 2.3 -0.6"/>
+    </filter>
+  </defs>
+
+  <!-- CONNECTIVITY MODULE BODY -->
+  <rect x="560" y="200" width="480" height="620"
+        rx="36"
+        fill="none"
+        stroke="#A1FF00"
+        stroke-width="4"
+        filter="url(#glow)"/>
+
+  <!-- INNER FRAME -->
+  <rect x="600" y="240" width="400" height="540"
+        rx="28"
+        fill="none"
+        stroke="#A1FF00"
+        stroke-width="1.5"
+        opacity="0.45"/>
+
+  <!-- FIBER SPLICE CORE -->
+  <circle cx="800" cy="500" r="120"
+          fill="none"
+          stroke="#A1FF00"
+          stroke-width="4"
+          filter="url(#pulseGlow)"/>
+
+  <!-- INNER CORE -->
+  <circle cx="800" cy="500" r="40"
+          fill="none"
+          stroke="#A1FF00"
+          stroke-width="4"/>
+
+  <!-- FIBER STRANDS -->
+  <g stroke="#A1FF00" stroke-width="4" fill="none">
+    <path d="M480 360 C620 360 680 430 760 470"/>
+    <path d="M1120 360 C980 360 920 430 840 470"/>
+    <path d="M480 640 C620 640 680 570 760 530"/>
+    <path d="M1120 640 C980 640 920 570 840 530"/>
+  </g>
+
+  <!-- DATA PULSES -->
+  <g fill="#A1FF00">
+    <circle r="6">
+      <animateMotion dur="1.2s" repeatCount="indefinite"
+        path="M480 360 C620 360 680 430 760 470"/>
+    </circle>
+
+    <circle r="6">
+      <animateMotion dur="1.4s" repeatCount="indefinite"
+        path="M1120 360 C980 360 920 430 840 470"/>
+    </circle>
+
+    <circle r="6">
+      <animateMotion dur="1.3s" repeatCount="indefinite"
+        path="M480 640 C620 640 680 570 760 530"/>
+    </circle>
+
+    <circle r="6">
+      <animateMotion dur="1.5s" repeatCount="indefinite"
+        path="M1120 640 C980 640 920 570 840 530"/>
+    </circle>
+  </g>
+
+  <!-- LINK STATUS NODES -->
+  <g fill="#A1FF00">
+    <circle cx="720" cy="300" r="7">
+      <animate attributeName="opacity"
+               values="0;1;0"
+               dur="1s"
+               repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="880" cy="300" r="7">
+      <animate attributeName="opacity"
+               values="0;1;0"
+               dur="1.4s"
+               repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="800" cy="900" r="7">
+      <animate attributeName="opacity"
+               values="0;1;0"
+               dur="1.2s"
+               repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- STATUS TEXT -->
+  <text x="800" y="1020"
+        text-anchor="middle"
+        font-size="22"
+        fill="#A1FF00"
+        font-family="monospace"
+        opacity="0.85">
+    FIBER LINK STABLE
+  </text>
+
+</svg>

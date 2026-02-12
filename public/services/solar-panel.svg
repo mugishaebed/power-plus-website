@@ -1,0 +1,83 @@
+<svg width="320" height="320" viewBox="0 0 320 320"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <!-- Glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Energy gradient -->
+    <linearGradient id="energy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFD600"/>
+      <stop offset="100%" stop-color="#ff9d00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sun -->
+  <circle cx="160" cy="55" r="22"
+          fill="none"
+          stroke="#FFD600"
+          stroke-width="3"
+          filter="url(#glow)">
+    <animate attributeName="r"
+             values="20;23;20"
+             dur="2s"
+             repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Sun rays -->
+  <g stroke="#FFD600" stroke-width="2" opacity="0.8">
+    <line x1="160" y1="85" x2="160" y2="115">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="145" y1="82" x2="130" y2="112">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/>
+    </line>
+    <line x1="175" y1="82" x2="190" y2="112">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.3s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- Solar panel frame -->
+  <rect x="60" y="130" width="200" height="120" rx="12"
+        fill="none"
+        stroke="#FFD600"
+        stroke-width="3"
+        filter="url(#glow)"/>
+
+  <!-- Panel grid -->
+  <g stroke="#FFD600" stroke-width="1" opacity="0.5">
+    <line x1="100" y1="130" x2="100" y2="250"/>
+    <line x1="140" y1="130" x2="140" y2="250"/>
+    <line x1="180" y1="130" x2="180" y2="250"/>
+    <line x1="220" y1="130" x2="220" y2="250"/>
+
+    <line x1="60" y1="170" x2="260" y2="170"/>
+    <line x1="60" y1="210" x2="260" y2="210"/>
+  </g>
+
+  <!-- Energy pulses flowing across panel -->
+  <circle r="6" fill="url(#energy)" filter="url(#glow)">
+    <animateMotion dur="2s" repeatCount="indefinite">
+      <mpath d="M70 150 H250"/>
+    </animateMotion>
+  </circle>
+
+  <circle r="5" fill="url(#energy)" opacity="0.6">
+    <animateMotion dur="2s" repeatCount="indefinite" begin="0.6s">
+      <mpath d="M70 190 H250"/>
+    </animateMotion>
+  </circle>
+
+  <circle r="4" fill="url(#energy)" opacity="0.4">
+    <animateMotion dur="2s" repeatCount="indefinite" begin="1.2s">
+      <mpath d="M70 230 H250"/>
+    </animateMotion>
+  </circle>
+
+</svg>

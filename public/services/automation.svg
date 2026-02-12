@@ -1,0 +1,117 @@
+<svg width="1600" height="1100" viewBox="0 0 1600 1100"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <!-- Glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Pulse glow -->
+    <filter id="pulseGlow">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feColorMatrix type="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 2.2 -0.6"/>
+    </filter>
+  </defs>
+
+  <!-- PLC BODY -->
+  <rect x="560" y="200" width="480" height="620"
+        rx="36"
+        fill="none"
+        stroke="#A1FF00"
+        stroke-width="4"
+        filter="url(#glow)"/>
+
+  <!-- INNER DEPTH -->
+  <rect x="600" y="240" width="400" height="540"
+        rx="28"
+        fill="none"
+        stroke="#A1FF00"
+        stroke-width="1.5"
+        opacity="0.45"/>
+
+  <!-- ROTATING AUTOMATION GEAR -->
+  <g transform-origin="800px 500px">
+    <animateTransform
+      type="rotate"
+      from="0 800 500"
+      to="360 800 500"
+      dur="3s"
+      repeatCount="indefinite"
+      calcMode="spline"
+      keySplines="0.4 0 0.6 1"/>
+
+    <circle cx="800" cy="500" r="140"
+            stroke="#A1FF00"
+            stroke-width="6"
+            fill="none"
+            filter="url(#pulseGlow)"/>
+
+    <!-- Gear teeth -->
+    <g stroke="#A1FF00" stroke-width="8">
+      <line x1="800" y1="340" x2="800" y2="300"/>
+      <line x1="800" y1="660" x2="800" y2="700"/>
+      <line x1="640" y1="500" x2="600" y2="500"/>
+      <line x1="960" y1="500" x2="1000" y2="500"/>
+    </g>
+  </g>
+
+  <!-- DATA FLOW -->
+  <g stroke="#A1FF00" stroke-width="4" fill="none" stroke-dasharray="8 14">
+    <path d="M480 350 H560">
+      <animate attributeName="stroke-dashoffset"
+               from="60" to="0"
+               dur="1s"
+               repeatCount="indefinite"/>
+    </path>
+
+    <path d="M1040 350 H1120">
+      <animate attributeName="stroke-dashoffset"
+               from="0" to="60"
+               dur="1s"
+               repeatCount="indefinite"/>
+    </path>
+
+    <path d="M800 820 V940">
+      <animate attributeName="stroke-dashoffset"
+               from="60" to="0"
+               dur="1.2s"
+               repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- STATUS LEDS -->
+  <g fill="#A1FF00">
+    <circle cx="700" cy="330" r="8">
+      <animate attributeName="opacity" values="0;1;0"
+               dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="900" cy="330" r="8">
+      <animate attributeName="opacity" values="0;1;0"
+               dur="1.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="800" cy="900" r="8">
+      <animate attributeName="opacity" values="0;1;0"
+               dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- SYSTEM TEXT -->
+  <text x="800" y="1020"
+        text-anchor="middle"
+        font-size="22"
+        fill="#A1FF00"
+        font-family="monospace"
+        opacity="0.85">
+    INDUSTRIAL AUTOMATION ACTIVE
+  </text>
+
+</svg>
