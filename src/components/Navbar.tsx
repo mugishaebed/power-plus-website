@@ -11,11 +11,18 @@ export default function Navbar() {
   const [activeLink, setActiveLink] = useState("About Us");
 
   const navLinks = [
-    { name: "About Us", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "Testimonials", href: "/testimonials" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "About Us", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Testimonials", href: "#testimonials" },
+    { name: "Contact Us", href: "#contact" },
   ];
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, link: typeof navLinks[0]) => {
+    e.preventDefault();
+    setActiveLink(link.name);
+    const el = document.querySelector(link.href);
+    el?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <nav className="absolute top-0 left-0 w-full z-[100] px-4 py-4 md:px-8 md:py-6">
@@ -36,18 +43,18 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
               href={link.href}
-              onClick={() => setActiveLink(link.name)}
-              className={`text-base font-medium transition-colors ${
+              onClick={(e) => handleClick(e, link)}
+              className={`text-base font-medium transition-colors cursor-pointer ${
                 activeLink === link.name
                   ? "text-[#ff9d00]"
                   : "text-gray-600 hover:text-gray-900"
               }`}
             >
               {link.name}
-            </Link>
+            </a>
           ))}
         </div>
 
@@ -78,21 +85,21 @@ export default function Navbar() {
             className="max-w-5xl mx-auto mt-2 bg-white rounded-lg shadow-lg p-6 flex flex-col gap-4 lg:hidden"
           >
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.name}
                 href={link.href}
-                onClick={() => {
-                  setActiveLink(link.name);
+                onClick={(e) => {
+                  handleClick(e, link);
                   setIsOpen(false);
                 }}
-                className={`text-base font-medium py-2 border-b border-gray-100 ${
+                className={`text-base font-medium py-2 border-b border-gray-100 cursor-pointer ${
                   activeLink === link.name
                     ? "text-[#ff9d00]"
                     : "text-gray-600 hover:text-gray-900"
                 }`}
               >
                 {link.name}
-              </Link>
+              </a>
             ))}
           </motion.div>
         )}

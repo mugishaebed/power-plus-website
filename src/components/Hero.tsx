@@ -7,25 +7,25 @@ export const SERVICES = [
   {
     title: "Electrical Installation",
     description: "Complete wiring, lighting, power distribution, and grounding solutions built to safety standards for homes, businesses, and industrial facilities.",
-    imgSrc: "/services/service-1.png",
+    imgSrc: "/services/hero-1.png",
     color: "#ff9d00",
   },
   {
     title: "Safety Systems",
     description: "Fire alarms, CCTV surveillance, gas detection, and fire extinguisher solutions to protect your people and property.",
-    imgSrc: "/services/service-2.png",
+    imgSrc: "/services/safety-2.png",
     color: "#ff9d00",
   },
   {
     title: "Network & Sound",
     description: "Fiber optic connectivity, structured networking, and professional sound system installations for modern buildings.",
-    imgSrc: "/services/service-3.png",
+    imgSrc: "/services/sound.png",
     color: "#ff9d00",
   },
   {
     title: "Power & Climate",
     description: "Generator backup power, HVAC heating and cooling, and reliable supply of quality electrical materials.",
-    imgSrc: "/services/service-4.png",
+    imgSrc: "/services/hvac.png",
     color: "#ff9d00",
   },
 ];

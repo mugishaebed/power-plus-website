@@ -70,19 +70,6 @@ export const projects: Project[] = [
     gallery: ["/projects/impinga-village.webp"],
     tags: ["2024-Present", "Mixed-Use"],
   },
-  {
-    id: 5,
-    slug: "kigali-heights",
-    name: "Kigali Heights",
-    customer: "Kigali Heights",
-    about:
-      "High-rise electrical systems and emergency power design for a premium office and retail tower.",
-    description:
-      "Power Plus Technology engineered and installed the complete electrical systems for Kigali Heights, one of the city's most prominent mixed-use towers comprising premium office space, retail outlets, and dining establishments. The project demanded advanced vertical power distribution design across multiple floors, with dedicated risers, busbar trunking systems, and floor-level distribution boards engineered to handle diverse tenant loads. A dual-redundant generator setup with automatic changeover ensures zero interruption for critical tenants. Our team also installed fire alarm integration with the electrical system, emergency lighting on all stairwells and escape routes, and a lightning protection system rated for the building's elevation. Energy-efficient VRV HVAC power feeds and EV charging station pre-wiring in the basement parking were also delivered as part of this flagship engagement.",
-    image: "/projects/silverback.jpg",
-    gallery: ["/projects/silverback.jpg"],
-    tags: ["2023-Present", "Commercial"],
-  },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {

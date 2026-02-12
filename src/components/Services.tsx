@@ -109,7 +109,7 @@ const Services: FC = () => {
                 </div>
 
                 <Image
-                  src="/services/service-1.png"
+                  src="/services/safety-2.png"
                   alt="Power Plus Technology engineer at work"
                   fill
                   className="object-cover"

@@ -14,7 +14,7 @@ export default function PageLoader() {
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-white">
       <Image
         src="/loader.png"
         alt="Loading page"

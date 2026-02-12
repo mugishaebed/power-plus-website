@@ -9,26 +9,26 @@ const testimonials = [
   {
     quote:
       "Power Plus Technology's engineering expertise and responsiveness have been critical to the success of our operations. Their team is proactive, detail-oriented, and truly understands the complexity of our needs.",
-    name: "Femi Adedayo",
-    role: "Operations Manager, IOC Partners",
-    avatar: "/testimonials/testimonial.webp",
-    image: "/services/service-3.png",
+    name: "Mugisha Patrick",
+    role: "Operations Manager, Kigali Convention Centre",
+    image:
+      "/services/user-fallback.jpg",
   },
   {
     quote:
       "Working with Power Plus has transformed our power infrastructure. Their professionalism and commitment to quality is unmatched in the industry.",
-    name: "Amina Uwase",
-    role: "Director of Facilities, TechHub Kigali",
-    avatar: "/services/service-3.png",
-    image: "/services/service-4.png",
+    name: "Mutoni Diane",
+    role: "Director of Facilities, Norrsken House Kigali",
+    image:
+      "/services/user-fallback.jpg",
   },
   {
     quote:
       "The team delivered our fiber connectivity project ahead of schedule and with exceptional quality. They are our go-to partner for all critical infrastructure needs.",
-    name: "Jean-Claude Habimana",
-    role: "CTO, Digital Solutions Ltd",
-    avatar: "/services/service-1.png",
-    image: "/services/service-3.png",
+    name: "Habimana Jean-Claude",
+    role: "CTO, BK Arena",
+    image:
+      "/services/user-fallback.jpg",
   },
 ];
 
@@ -60,7 +60,7 @@ export default function Testimonials() {
   const t = testimonials[current];
 
   return (
-    <section className="py-24 bg-white">
+    <section id="testimonials" className="py-24 bg-white">
       <div className="container mx-auto px-4">
         {/* Header */}
         <FadeIn direction="up" className="text-center mb-16">

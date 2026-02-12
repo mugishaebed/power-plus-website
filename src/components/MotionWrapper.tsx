@@ -48,7 +48,7 @@ export default function MotionWrapper({ services, onIndexChange }: Props) {
           
           {/* FULL SECTION OVERLAY */}
           {/* Changed from w-1/2 to absolute inset-0 */}
-          <div className="absolute inset-0 bg-black/50 z-10" />
+          <div className="absolute inset-0 bg-black/60 z-10" />
 
           {/* CONTENT CONTAINER */}
           {/* Removed w-1/2 and absolute inset-y-0 to let it breathe across the full width */}

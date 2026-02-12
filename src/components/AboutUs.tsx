@@ -13,36 +13,60 @@ const backgroundIcons = [
   "/icons/fire-extinguisher.svg",
 ];
 
+// Pre-computed scattered positions (left%, top%) for a natural random look
+const scatteredPositions: { left: number; top: number; icon: number }[] = [
+  { left: 5, top: 3, icon: 0 },
+  { left: 72, top: 7, icon: 3 },
+  { left: 38, top: 2, icon: 5 },
+  { left: 88, top: 15, icon: 1 },
+  { left: 15, top: 18, icon: 4 },
+  { left: 55, top: 22, icon: 6 },
+  { left: 28, top: 30, icon: 2 },
+  { left: 80, top: 35, icon: 0 },
+  { left: 3, top: 40, icon: 5 },
+  { left: 62, top: 42, icon: 3 },
+  { left: 42, top: 50, icon: 1 },
+  { left: 90, top: 52, icon: 6 },
+  { left: 18, top: 55, icon: 4 },
+  { left: 70, top: 60, icon: 2 },
+  { left: 8, top: 65, icon: 0 },
+  { left: 50, top: 68, icon: 5 },
+  { left: 32, top: 75, icon: 3 },
+  { left: 85, top: 72, icon: 1 },
+  { left: 22, top: 82, icon: 6 },
+  { left: 60, top: 85, icon: 4 },
+  { left: 78, top: 90, icon: 2 },
+  { left: 10, top: 92, icon: 0 },
+  { left: 45, top: 95, icon: 5 },
+];
+
 export default function AboutUs() {
   return (
-    <section className="relative min-h-screen py-24 px-6 bg-white overflow-hidden flex items-center">
+    <section id="about" className="relative min-h-screen py-24 px-6 bg-white overflow-hidden flex items-center">
       {/* Repeating SVG Background Pattern */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(3)].map((_, row) =>
-          backgroundIcons.map((_, i) => {
-            const shuffleOffset = ((row * 3 + i * 7) % backgroundIcons.length);
-            const shuffledIcon = backgroundIcons[(i + row * 2 + shuffleOffset) % backgroundIcons.length];
-            return (
-              <div
-                key={`${row}-${i}`}
-                className="absolute w-16 h-16 opacity-[0.10]"
-                style={{
-                  left: `${(i * (90 / backgroundIcons.length)) + (row % 2 === 0 ? 3 : 10)}%`,
-                  top: `${row * 35 + 10}%`,
-                  backgroundColor: "#ff9d00",
-                  WebkitMaskImage: `url(${shuffledIcon})`,
-                  WebkitMaskSize: "contain",
-                  WebkitMaskRepeat: "no-repeat",
-                  WebkitMaskPosition: "center",
-                  maskImage: `url(${shuffledIcon})`,
-                  maskSize: "contain",
-                  maskRepeat: "no-repeat",
-                  maskPosition: "center",
-                }}
-              />
-            );
-          })
-        )}
+        {scatteredPositions.map((pos, i) => {
+          const icon = backgroundIcons[pos.icon];
+          return (
+            <div
+              key={i}
+              className="absolute w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 opacity-[0.10]"
+              style={{
+                left: `${pos.left}%`,
+                top: `${pos.top}%`,
+                backgroundColor: "#ff9d00",
+                WebkitMaskImage: `url(${icon})`,
+                WebkitMaskSize: "contain",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskPosition: "center",
+                maskImage: `url(${icon})`,
+                maskSize: "contain",
+                maskRepeat: "no-repeat",
+                maskPosition: "center",
+              }}
+            />
+          );
+        })}
       </div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         
@@ -50,7 +74,7 @@ export default function AboutUs() {
         <FadeIn direction="left" className="relative">
           <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
             <img
-              src="/services/service-1.png"
+              src="/services/safety.png"
               alt="Power Plus Technology at work"
               className="object-cover w-full h-full"
             />
