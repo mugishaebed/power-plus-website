@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Search } from "lucide-react";
+import { Menu, X, Phone, MessageCircle } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,14 +58,36 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Right Side: Search Icon & Mobile Toggle */}
-        <div className="flex items-center gap-4">
-          {/* Search Icon */}
-          <button className="hidden lg:flex p-2 text-gray-600 hover:text-gray-900 transition-colors">
-            <Search size={20} />
-          </button>
+        {/* Social Icons & Mobile Toggle */}
+        <div className="flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
+            <a
+              href="https://www.instagram.com/powerplustechnologyltd?igsh=MW16cmJpZmRwYXU1cA=="
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="p-2 text-gray-600 hover:text-[#E1306C] transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
+            </a>
+            <a
+              href="https://wa.me/250788563458"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="p-2 text-gray-600 hover:text-[#25D366] transition-colors"
+            >
+              <MessageCircle size={20} />
+            </a>
+            <a
+              href="tel:+250788563458"
+              aria-label="Call us"
+              className="p-2 text-gray-600 hover:text-[#ff9d00] transition-colors"
+            >
+              <Phone size={20} />
+            </a>
+          </div>
 
-          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 text-gray-600 hover:text-gray-900"
@@ -101,6 +123,35 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-4 pt-2">
+              <a
+                href="https://www.instagram.com/powerplustechnologyltd?igsh=MW16cmJpZmRwYXU1cA=="
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="p-2 text-gray-600 hover:text-[#E1306C] transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
+              </a>
+              <a
+                href="https://wa.me/250788563458"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="p-2 text-gray-600 hover:text-[#25D366] transition-colors"
+              >
+                <MessageCircle size={20} />
+              </a>
+              <a
+                href="tel:+250788563458"
+                aria-label="Call us"
+                className="p-2 text-gray-600 hover:text-[#ff9d00] transition-colors"
+              >
+                <Phone size={20} />
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

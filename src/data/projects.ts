@@ -66,8 +66,13 @@ export const projects: Project[] = [
       "Full electrical infrastructure for a mixed-use residential and commercial village development.",
     description:
       "Power Plus Technology was contracted to deliver the entire electrical infrastructure for Impinga Village, a growing mixed-use development on the outskirts of Kigali. The project included designing and installing a medium-voltage ring main unit to serve the village's residential blocks, retail spaces, and community facilities. Our engineers implemented underground cabling throughout the estate, ensuring both aesthetic appeal and protection against weather-related outages. Each residential cluster was fitted with smart metering and dedicated distribution boards, while commercial units received three-phase power supplies to accommodate high-demand equipment. Street lighting, perimeter security lighting, and a centralized backup generator system were also part of the scope. The project stands as a model for efficient power delivery in emerging residential communities.",
-    image: "/projects/impinga-village.webp",
-    gallery: ["/projects/impinga-village.webp"],
+    image: "/projects/impinga-1.jpeg",
+    gallery: [
+      "/projects/impinga-2.jpeg",
+      "/projects/impinga-1.jpeg",
+      "/projects/impinga-3.jpeg",
+      "/projects/impinga-4.jpeg",
+    ],
     tags: ["2024-Present", "Mixed-Use"],
   },
 ];

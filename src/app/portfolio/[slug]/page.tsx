@@ -61,50 +61,77 @@ export default async function ProjectDetailPage({
 
         {/* Image gallery */}
         {project.gallery.length >= 4 ? (
-          <div className="grid grid-cols-3 gap-3 mb-8">
-            {/* Large hero image spanning left column, 2 rows */}
-            <div className="col-span-1 row-span-2 relative aspect-[3/4] rounded-lg overflow-hidden">
-              <Image
-                src={heroImage}
-                alt={`${project.name} - Main`}
-                fill
-                className="object-cover"
-                sizes="33vw"
-              />
+          <>
+            {/* Mobile: stacked layout */}
+            <div className="flex flex-col gap-2 mb-8 rounded-2xl overflow-hidden md:hidden">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={project.gallery[0]}
+                  alt={`${project.name} - 1`}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                />
+              </div>
+              <div className="grid grid-cols-3 gap-2">
+                {project.gallery.slice(1, 4).map((img, i) => (
+                  <div key={i} className="relative aspect-square">
+                    <Image
+                      src={img}
+                      alt={`${project.name} - ${i + 2}`}
+                      fill
+                      className="object-cover"
+                      sizes="33vw"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-            {/* Top right two images */}
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-              <Image
-                src={sideImages[0]}
-                alt={`${project.name} - Detail 1`}
-                fill
-                className="object-cover"
-                sizes="33vw"
-              />
+
+            {/* Desktop: bento grid */}
+            <div className="hidden md:grid grid-cols-2 gap-2 mb-8 rounded-2xl overflow-hidden">
+              <div className="row-span-2 relative h-[520px]">
+                <Image
+                  src={project.gallery[0]}
+                  alt={`${project.name} - 1`}
+                  fill
+                  className="object-cover"
+                  sizes="50vw"
+                />
+              </div>
+              <div className="relative h-[256px]">
+                <Image
+                  src={project.gallery[1]}
+                  alt={`${project.name} - 2`}
+                  fill
+                  className="object-cover"
+                  sizes="50vw"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-2 h-[256px]">
+                <div className="relative">
+                  <Image
+                    src={project.gallery[2]}
+                    alt={`${project.name} - 3`}
+                    fill
+                    className="object-cover"
+                    sizes="25vw"
+                  />
+                </div>
+                <div className="relative">
+                  <Image
+                    src={project.gallery[3]}
+                    alt={`${project.name} - 4`}
+                    fill
+                    className="object-cover"
+                    sizes="25vw"
+                  />
+                </div>
+              </div>
             </div>
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-              <Image
-                src={sideImages[1]}
-                alt={`${project.name} - Detail 2`}
-                fill
-                className="object-cover"
-                sizes="33vw"
-              />
-            </div>
-            {/* Bottom wide image spanning 2 columns */}
-            <div className="col-span-2 relative aspect-[2/1] rounded-lg overflow-hidden">
-              <Image
-                src={sideImages[2]}
-                alt={`${project.name} - Detail 3`}
-                fill
-                className="object-cover"
-                sizes="66vw"
-              />
-            </div>
-          </div>
+          </>
         ) : (
-          /* Single image fallback */
-          <div className="relative aspect-video rounded-lg overflow-hidden mb-8">
+          <div className="relative aspect-video rounded-2xl overflow-hidden mb-8">
             <Image
               src={heroImage}
               alt={project.name}

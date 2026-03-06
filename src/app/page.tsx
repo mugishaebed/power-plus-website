@@ -6,6 +6,7 @@ import Partners from "@/components/Partners";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
+import WhatsAppCTA from "@/components/WhatsAppCTA";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <AboutUs />
         <Services />
         <Projects />
+        <WhatsAppCTA />
         <Testimonials />
       </main>
       <Footer />

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import FadeIn from "./FadeIn";
 
@@ -9,26 +8,14 @@ const testimonials = [
   {
     quote:
       "Power Plus Technology's engineering expertise and responsiveness have been critical to the success of our operations. Their team is proactive, detail-oriented, and truly understands the complexity of our needs.",
-    name: "Mugisha Patrick",
-    role: "Operations Manager, Kigali Convention Centre",
-    image:
-      "/services/user-fallback.jpg",
+    name: "Ngabonziza Jean Bosco",
+    role: "Engineer, Lemigo Luxury Apartments",
   },
   {
     quote:
       "Working with Power Plus has transformed our power infrastructure. Their professionalism and commitment to quality is unmatched in the industry.",
-    name: "Mutoni Diane",
-    role: "Director of Facilities, Norrsken House Kigali",
-    image:
-      "/services/user-fallback.jpg",
-  },
-  {
-    quote:
-      "The team delivered our fiber connectivity project ahead of schedule and with exceptional quality. They are our go-to partner for all critical infrastructure needs.",
-    name: "Habimana Jean-Claude",
-    role: "CTO, BK Arena",
-    image:
-      "/services/user-fallback.jpg",
+    name: "Umwali Hortence",
+    role: "Manager, Silver Back Mall",
   },
 ];
 
@@ -157,15 +144,11 @@ export default function Testimonials() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.4, ease: "easeInOut" }}
-                      className="relative z-10 w-[300px] aspect-[3/4] overflow-hidden"
+                      className="relative z-10 w-[300px] aspect-[3/4] overflow-hidden rounded-md bg-gradient-to-br from-[#F07C21]/10 to-[#F07C21]/5 flex items-center justify-center"
                     >
-                      <Image
-                        src={t.image}
-                        alt={t.name}
-                        fill
-                        className="object-cover rounded-md"
-                        sizes="300px"
-                      />
+                      <span className="text-7xl font-bold text-[#F07C21]/60 select-none">
+                        {t.name.split(" ").map((w) => w[0]).join("")}
+                      </span>
                     </motion.div>
                   </AnimatePresence>
                   {/* Bottom decorative orange line */}

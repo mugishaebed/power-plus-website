@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import PageLoader from "@/components/PageLoader";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -29,6 +30,7 @@ export default function RootLayout({
       >
         <PageLoader />
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
