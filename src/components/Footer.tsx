@@ -6,16 +6,16 @@ import { services } from "@/data/services";
 const quickLinks = [
   { name: "About Us", href: "/#about" },
   { name: "Services", href: "/#services" },
-  { name: "Portfolio", href: "/#portfolio" },
+  { name: "Our Projects", href: "/#projects" },
   { name: "Testimonials", href: "/#testimonials" },
-  { name: "Contact Us", href: "/contact" },
+  { name: "Contact Us", href: "/#contact" },
 ];
 
 const Footer: FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="bg-[#0a0a0a] border-t border-white/5">
+    <footer className="bg-[#0a0a0a] border-t border-white/5">
       {/* Main footer */}
       <div className="container mx-auto px-4 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
@@ -79,12 +79,12 @@ const Footer: FC = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
+                  <a
                     href={link.href}
                     className="text-white/40 text-sm hover:text-[#F07C21] transition-colors duration-300"
                   >
                     {link.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -98,21 +98,21 @@ const Footer: FC = () => {
             <ul className="space-y-3">
               {services.slice(0, 6).map((service) => (
                 <li key={service.id}>
-                  <Link
+                  <a
                     href="/#services"
                     className="text-white/40 text-sm hover:text-[#F07C21] transition-colors duration-300"
                   >
                     {service.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
               <li>
-                <Link
+                <a
                   href="/#services"
                   className="text-[#F07C21] text-sm hover:text-[#F07C21]/80 transition-colors duration-300"
                 >
                   View all services &rarr;
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -213,6 +213,7 @@ const Footer: FC = () => {
       <div className="border-t border-white/5">
         <div className="container mx-auto px-4 py-6 flex items-center justify-center">
           <p className="text-white/25 text-xs">
+
             &copy; {currentYear} Power Plus Technology. All rights reserved.
           </p>
         </div>

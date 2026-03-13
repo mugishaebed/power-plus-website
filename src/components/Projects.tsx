@@ -42,16 +42,16 @@ const Portfolio: FC = () => {
   };
 
   return (
-    <section id="portfolio" className="py-24 bg-[#121212]">
+    <section id="projects" className="py-24 bg-[#121212]">
       <div className="container mx-auto px-4">
         {/* Heading + navigation arrows */}
         <div className="flex items-end justify-between mb-20">
           <div className="text-left">
             <p className="text-[#F07C21] uppercase tracking-[0.2em] text-[35px] mb-4">
-              Portfolio
+              Our Projects
             </p>
             <h2 className="text-[25px] font-light text-[#FFFFFF]">
-              Featured Work
+              Recent Installations
             </h2>
           </div>
 
@@ -88,7 +88,7 @@ const Portfolio: FC = () => {
           {projects.map((project) => (
             <Link
               key={project.id}
-              href={`/portfolio/${project.slug}`}
+              href={`/projects/${project.slug}`}
               className="block group relative aspect-[3/4] overflow-hidden rounded-lg flex-shrink-0 w-[85vw] sm:w-[60vw] md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)]"
             >
               {/* Customer badge */}

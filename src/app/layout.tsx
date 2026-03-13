@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
+import Script from "next/script";
 import PageLoader from "@/components/PageLoader";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
@@ -25,6 +26,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-8R2RCLDT3E"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-8R2RCLDT3E');
+          `}
+        </Script>
+      </head>
       <body
         className={`${outfit.variable} font-sans antialiased bg-[#050505] selection:bg-[#00E5FF]/30`}
       >

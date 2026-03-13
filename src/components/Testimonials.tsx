@@ -19,6 +19,35 @@ const testimonials = [
   },
 ];
 
+const backgroundIcons = [
+  "/icons/multimeter.svg",
+  "/icons/wires.svg",
+  "/icons/bulb.svg",
+  "/icons/socket.svg",
+  "/icons/air-conditioner.svg",
+  "/icons/cctv-camera.svg",
+  "/icons/fire-extinguisher.svg",
+];
+
+const scatteredPositions: { left: number; top: number; icon: number }[] = [
+  { left: 3, top: 5, icon: 2 },
+  { left: 68, top: 3, icon: 5 },
+  { left: 35, top: 10, icon: 0 },
+  { left: 92, top: 8, icon: 3 },
+  { left: 12, top: 25, icon: 6 },
+  { left: 52, top: 18, icon: 1 },
+  { left: 82, top: 30, icon: 4 },
+  { left: 25, top: 45, icon: 5 },
+  { left: 65, top: 50, icon: 2 },
+  { left: 8, top: 60, icon: 0 },
+  { left: 88, top: 55, icon: 6 },
+  { left: 45, top: 70, icon: 3 },
+  { left: 75, top: 75, icon: 1 },
+  { left: 18, top: 85, icon: 4 },
+  { left: 58, top: 90, icon: 0 },
+  { left: 90, top: 92, icon: 5 },
+];
+
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -47,8 +76,33 @@ export default function Testimonials() {
   const t = testimonials[current];
 
   return (
-    <section id="testimonials" className="py-24 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="testimonials" className="relative py-24 bg-white overflow-hidden">
+      {/* Background icons */}
+      <div className="absolute inset-0 pointer-events-none">
+        {scatteredPositions.map((pos, i) => {
+          const icon = backgroundIcons[pos.icon];
+          return (
+            <div
+              key={i}
+              className="absolute w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 opacity-[0.10]"
+              style={{
+                left: `${pos.left}%`,
+                top: `${pos.top}%`,
+                backgroundColor: "#ff9d00",
+                WebkitMaskImage: `url(${icon})`,
+                WebkitMaskSize: "contain",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskPosition: "center",
+                maskImage: `url(${icon})`,
+                maskSize: "contain",
+                maskRepeat: "no-repeat",
+                maskPosition: "center",
+              }}
+            />
+          );
+        })}
+      </div>
+      <div className="relative container mx-auto px-4">
         {/* Header */}
         <FadeIn direction="up" className="text-center mb-16">
           <span className="inline-block border border-[#121212]/20 text-[#121212]/70 text-sm tracking-wider px-6 py-2 rounded-full mb-6">

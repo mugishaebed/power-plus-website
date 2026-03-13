@@ -106,12 +106,6 @@ export default function AboutUs() {
                 innovative engineering and rigorous maintenance.
             </p>
           </FadeIn>
-
-          <FadeIn direction="up" delay={0.2}>
-            <button className="mt-8 px-8 py-3 bg-[#ff9d00] text-white rounded-full font-medium hover:bg-green-600 transition-colors">
-              Learn More
-            </button>
-          </FadeIn>
         </div>
       </div>
     </section>

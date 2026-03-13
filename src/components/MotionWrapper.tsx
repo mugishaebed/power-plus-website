@@ -83,7 +83,10 @@ export default function MotionWrapper({ services, onIndexChange }: Props) {
                 transition={{ delay: 0.3 }}
                 className="pt-6 sm:pt-8 md:pt-10"
               >
-                <button className="group flex items-center gap-3 sm:gap-4 bg-white text-black px-6 py-3 sm:px-8 sm:py-3.5 md:px-10 md:py-4 text-sm sm:text-base font-bold uppercase tracking-widest hover:bg-[#ff9d00] hover:text-white transition-all">
+                <button
+                  onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+                  className="group flex items-center gap-3 sm:gap-4 bg-white text-black px-6 py-3 sm:px-8 sm:py-3.5 md:px-10 md:py-4 text-sm sm:text-base font-bold uppercase tracking-widest hover:bg-[#ff9d00] hover:text-white transition-all"
+                >
                   Get Started <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </motion.div>
